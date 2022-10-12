@@ -5,7 +5,7 @@ description = ""
 authors = ["Paul Cowie <paul.cowie@ntlworld.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.9.7"
+python = ">=3.8,<3.9.7||>3.9.7,<3.10"
 streamlit = "^1.13.0"
 jupyter = "^1.0.0"
 pandas = "^1.5.0"
