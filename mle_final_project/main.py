@@ -4,24 +4,28 @@ import pandas as pd
 import numpy as np
 import pickle
 
-st. set_page_config(layout="wide") 
+st.set_page_config(layout="wide") 
 
-st.write("""
-Columns:\n\n
+st.title("Loan Default Prediction Model")
 
-\ncredit.policy: 1 if the customer meets the credit underwriting criteria of LendingClub.com, and 0 otherwise.
-\npurpose: The purpose of the loan (takes values "creditcard", "debtconsolidation", "educational", "majorpurchase", "smallbusiness", and "all_other").
-\nint.rate: The interest rate of the loan, as a proportion (a rate of 11% would be stored as 0.11). Borrowers judged by LendingClub.com to be more risky are assigned higher interest rates.
-\ninstallment: The monthly installments owed by the borrower if the loan is funded.
-\nlog.annual.inc: The natural log of the self-reported annual income of the borrower.
-\ndti: The debt-to-income ratio of the borrower (amount of debt divided by annual income).
-\nfico: The FICO credit score of the borrower.
-\ndays.with.cr.line: The number of days the borrower has had a credit line.
-\nrevol.bal: The borrower's revolving balance (amount unpaid at the end of the credit card billing cycle).
-\nrevol.util: The borrower's revolving line utilization rate (the amount of the credit line used relative to total credit available).
-\ninq.last.6mths: The borrower's number of inquiries by creditors in the last 6 months.
-\ndelinq.2yrs: The number of times the borrower had been 30+ days past due on a payment in the past 2 years.
-\npub.rec: The borrower's number of derogatory public records (bankruptcy filings, tax liens, or judgments).""")
+
+with st.expander("Data dictionary"):
+    st.write("""
+    Columns:\n\n
+
+    \ncredit.policy: 1 if the customer meets the credit underwriting criteria of LendingClub.com, and 0 otherwise.
+    \npurpose: The purpose of the loan (takes values "creditcard", "debtconsolidation", "educational", "majorpurchase", "smallbusiness", and "all_other").
+    \nint_rate: The interest rate of the loan, as a proportion (a rate of 11% would be stored as 0.11). Borrowers judged by LendingClub.com to be more risky are assigned higher interest rates.
+    \ninstallment: The monthly installments owed by the borrower if the loan is funded.
+    \annual_inc: The self-reported annual income of the borrower.
+    \ndti: The debt-to-income ratio of the borrower (amount of debt divided by annual income).
+    \nfico: The FICO credit score of the borrower.
+    \ndays_with_cr_line: The number of days the borrower has had a credit line.
+    \nrevol_bal: The borrower's revolving balance (amount unpaid at the end of the credit card billing cycle).
+    \nrevol_util: The borrower's revolving line utilization rate (the amount of the credit line used relative to total credit available).
+    \ninq_last_6mths: The borrower's number of inquiries by creditors in the last 6 months.
+    \ndelinq_2yrs: The number of times the borrower had been 30+ days past due on a payment in the past 2 years.
+    \npub_rec: The borrower's number of derogatory public records (bankruptcy filings, tax liens, or judgments).""")
 
 df = pd.read_csv("loan_data.csv")
 
